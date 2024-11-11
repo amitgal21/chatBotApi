@@ -1,33 +1,26 @@
-#ChatBot API Server with Text-to-Speech Conversion
+# ChatBot API Server with Text-to-Speech Conversion
 
-A Node.js API server that utilizes OpenAI's GPT-4 for chatbot responses and Google Text-to-Speech for voice output. Conversations are stored in MongoDB with audio files stored in GridFS.
+_A Node.js API server that utilizes OpenAI's GPT-4 for chatbot responses and Google Text-to-Speech for voice output. Conversations are stored in MongoDB with audio files stored in GridFS._
 
-Table of Contents
-Project Overview
-Features
-Technologies Used
-Setup Instructions
-Environment Variables
-API Endpoints
-Contributing
-License
-Project Overview
+
+## Project Overview
 This project is a chatbot API server built with Node.js and Express. It allows users to interact with OpenAI's GPT-4 model through a /chat endpoint, and responses are converted to speech using Google Cloud Text-to-Speech. The application stores both the chat history and generated audio files in MongoDB, leveraging GridFS for efficient file storage.
 
-Features
-Text-to-Speech: Converts chatbot responses to speech and returns an audio file.
-Conversation Storage: Saves each chat session (user query, bot response, timestamp, and audio file) in MongoDB.
-Scalable Design: Uses GridFS for managing audio files.
-Environmentally Configurable: Easily configurable API keys and database connections through environment variables.
-Technologies Used
-Node.js and Express - Server framework
-MongoDB with GridFS - Database for storing text and audio files
-OpenAI API (GPT-4) - For generating chatbot responses
-Google Cloud Text-to-Speech - For converting text responses to audio
-Axios - For handling HTTP requests
-dotenv - For managing environment variables
-Setup Instructions
-Prerequisites
+### Features
+*Text-to-Speech:* Converts chatbot responses to speech and returns an audio file.
+*Conversation Storage:* Saves each chat session (user query, bot response, timestamp, and audio file) in MongoDB.
+*Scalable Design:* Uses GridFS for managing audio files.
+*Environmentally Configurable:* Easily configurable API keys and database connections through environment variables.
+### Technologies Used
+*Node.js* and *Express* - Server framework
+*MongoDB* with *GridFS* - Database for storing text and audio files
+*OpenAI API* (GPT-4) - For generating chatbot responses
+*Google Cloud Text-to-Speech* - For converting text responses to audio
+*Axios* - For handling *HTTP* requests
+*dotenv* - For managing environment variables
+
+## Setup Instructions
+### Prerequisites
 Node.js and npm installed on your system.
 MongoDB setup (can be a local instance or MongoDB Atlas).
 Google Cloud Text-to-Speech API credentials.
