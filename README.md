@@ -21,12 +21,13 @@ This project is a chatbot API server built with Node.js and Express. It allows u
 
 ## Setup Instructions
 ### Prerequisites
-Node.js and npm installed on your system.
-MongoDB setup (can be a local instance or MongoDB Atlas).
-Google Cloud Text-to-Speech API credentials.
-OpenAI API key.
-Installation
-Clone the Repository:
+*Node.js* and npm installed on your system.
+*MongoDB* setup (can be a local instance or MongoDB Atlas).
+*Google Cloud Text-to-Speech API* credentials.
+*OpenAI API key*.
+
+### Installation
+*Clone the Repository:*
 
 bash
 Copy code
