@@ -29,8 +29,9 @@ This project is a chatbot API server built with **Node.js** and **Express**. It 
 ### Installation
 **Clone the Repository:**
 
-```git clone <repository-url>
-   cd your-repo-folder```
+``` Bash
+git clone <repository-url>
+   cd your-repo-folder
 
 Install Dependencies:
 
