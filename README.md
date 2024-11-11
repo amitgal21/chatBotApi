@@ -33,59 +33,61 @@ This project is a chatbot API server built with **Node.js** and **Express**. It 
    git clone <repository-url>
    cd your-repo-folder
 ```
-Install Dependencies:
+**Install Dependencies:**
 
-bash
-Copy code
-npm install
-Set Up Environment Variables: Create a .env file in the project root and add the following variables:
+``` Bash
+   npm install
+```
 
-plaintext
-Copy code
-OPENAI_API_KEY=your_openai_api_key
-GOOGLE_APPLICATION_CREDENTIALS=path/to/your/google-credentials.json
-MONGODB_URI=your_mongodb_connection_string
-Run the Server:
+**Set Up Environment Variables:** Create a **.env** file in the project root and add the following variables:
 
-bash
-Copy code
-npm start
-Verify the Server: Open your browser or Postman and go to http://localhost:3000 to see the welcome message.
+``` plaintext
+   OPENAI_API_KEY=your_openai_api_key
+   GOOGLE_APPLICATION_CREDENTIALS=path/to/your/google-credentials.json
+   MONGODB_URI=your_mongodb_connection_string
+```
+**Run the Server:**
+``` bash
+   npm start
+```
+**Verify the Server:** Open your browser or Postman and go to **http://localhost:3000** to see the welcome message.
 
-Environment Variables
+## Environment Variables 
 The project uses environment variables for security and flexibility. Here’s what you need to configure:
 
-OPENAI_API_KEY - Your OpenAI API key for GPT-4.
-GOOGLE_APPLICATION_CREDENTIALS - Path to the JSON file with Google Cloud credentials.
-MONGODB_URI - Connection string for MongoDB, including credentials if necessary.
-API Endpoints
-POST /chat
+**OPENAI_API_KEY** - Your OpenAI API key for GPT-4.
+**GOOGLE_APPLICATION_CREDENTIALS** - Path to the JSON file with Google Cloud credentials.
+**MONGODB_URI** - Connection string for **MongoDB**, including credentials if necessary.
+
+##API Endpoints##
+**POST** /chat
 Sends a user message to the chatbot and receives a text and audio response.
 
-Request Body
-json
+**Request Body**
+``` json
 Copy code
 {
   "message": "Your message here"
 }
-Response
+```
+
+**Response**
 Returns the bot’s reply in both text and audio file format:
 
-json
-Copy code
+``` json
 {
   "reply": "Bot's text response",
   "audioFileId": "MongoDB GridFS file ID for the audio response"
 }
-Contributing
+```
+
+## Contributing
 Contributions are welcome! Feel free to submit issues, fork the repository, and make pull requests.
 
-Fork the project.
-Create your feature branch (git checkout -b feature/NewFeature).
-Commit your changes (git commit -m 'Add NewFeature').
-Push to the branch (git push origin feature/NewFeature).
-Open a pull request.
-License
-Distributed under the MIT License. See LICENSE for more information.
+1.Fork the project.
+2.Create your feature branch (git checkout -b feature/NewFeature).
+3.Commit your changes (git commit -m 'Add NewFeature').
+4.Push to the branch (git push origin feature/NewFeature).
+5.Open a pull request.
 
-Note: Ensure that sensitive data (like API keys) is protected by using environment variables and .gitignore to avoid accidentally pushing them to a public repository.
+# Thank For Reading :)
