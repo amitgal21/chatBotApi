@@ -1,1 +1,11 @@
+# Ignore environment variables
 .env
+
+# Ignore Google Cloud credentials file
+google-credentials.json
+
+# Node modules
+node_modules/
+
+# Log files
+*.log
