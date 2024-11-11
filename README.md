@@ -30,9 +30,9 @@ This project is a chatbot API server built with **Node.js** and **Express**. It 
 **Clone the Repository:**
 
 ``` Bash
-git clone <repository-url>
+   git clone <repository-url>
    cd your-repo-folder
-
+```
 Install Dependencies:
 
 bash
