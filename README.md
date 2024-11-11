@@ -65,7 +65,6 @@ Sends a user message to the chatbot and receives a text and audio response.
 
 **Request Body**
 ``` json
-Copy code
 {
   "message": "Your message here"
 }
