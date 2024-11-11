@@ -1,5 +1,5 @@
 const http = require('http');
-const app = require('./app'); // מייבא את האפליקציה מקובץ app.js
+const app = require('./app'); 
 const port = 3000;
 const connectDB = require('./db/connection');
 connectDB(); 

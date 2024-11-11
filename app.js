@@ -4,10 +4,10 @@ const morgan = require('morgan');
 const axios = require('axios');
 const fs = require('fs');
 const util = require('util');
-const { MongoClient, GridFSBucket } = require('mongodb'); // ייבוא GridFS
-const textToSpeech = require('@google-cloud/text-to-speech');
+const { MongoClient, GridFSBucket } = require('mongodb');//gridfs for convert mp3 file 
+const textToSpeech = require('@google-cloud/text-to-speech');//connect to tts
 const Conversation = require('./db/conversation');
-const connectDB = require('./db/connection'); // חיבור למסד הנתונים
+const connectDB = require('./db/connection'); //connect to db
 
 const app = express();
 app.use(express.json());
@@ -15,7 +15,7 @@ app.use(morgan('dev'));
 
 const apiKey = process.env.OPENAI_API_KEY;
 
-// פונקציה להמרת טקסט לקול
+// convert text to speech section
 async function textToSpeechConversion(text) {
     const client = new textToSpeech.TextToSpeechClient();
 
@@ -30,14 +30,14 @@ async function textToSpeechConversion(text) {
     await writeFile('output.mp3', response.audioContent, 'binary');
     console.log('Audio content written to file: output.mp3');
 
-    return 'output.mp3'; // נתיב קובץ הקול שנוצר
+    return 'output.mp3'; //return the output of the voice
 }
 
-// פונקציה להעלאת קובץ ל-GridFS
+//convert to gridfs
 async function uploadAudioToGridFS(filePath) {
     const client = new MongoClient(process.env.MONGODB_URI);
     await client.connect();
-    const db = client.db(); // מתחבר למסד הנתונים
+    const db = client.db(); 
     const bucket = new GridFSBucket(db, { bucketName: 'audioFiles' });
 
     return new Promise((resolve, reject) => {
@@ -50,7 +50,7 @@ async function uploadAudioToGridFS(filePath) {
             })
             .on('finish', () => {
                 console.log("File uploaded successfully to MongoDB.");
-                resolve(uploadStream.id); // מחזיר את מזהה הקובץ שנשמר
+                resolve(uploadStream.id); //return the id of sound
             });
     });
 }
@@ -82,17 +82,17 @@ app.post('/chat', async (req, res) => {
 
         const botMessage = response.data.choices[0].message.content;
 
-        // המרת טקסט לקול
+        //call to change textfrom gpt to speech
         const audioFilePath = await textToSpeechConversion(botMessage);
 
-        // העלאת קובץ ה-MP3 ל-GridFS
+        //convert mp3 file to grid fs
         const audioFileId = await uploadAudioToGridFS(audioFilePath);
 
-        // שמירת השיחה במסד הנתונים כולל מזהה הקובץ
+        // insert to mongodb
         const conversation = new Conversation({
             userMessage: userMessage,
             botMessage: botMessage,
-            audioFileId: audioFileId // שמירת מזהה הקובץ
+            audioFileId: audioFileId 
         });
         await conversation.save();
 
